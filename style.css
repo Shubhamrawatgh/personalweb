@@ -7,11 +7,9 @@
     --text-main: #111827;
     --text-muted: #6b7280;
     --accent: #2563eb;
-    --card-bg: #f9fafb;
     --card-border: #e5e7eb;
     --nav-bg: rgba(255, 255, 255, 0.8);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] {
@@ -20,11 +18,9 @@
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --accent: #60a5fa;
-    --card-bg: #1e293b;
     --card-border: #334155;
     --nav-bg: rgba(15, 23, 42, 0.8);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================
@@ -188,7 +184,7 @@ p {
 }
 
 /* ==========================================
-   5. CARDS (SKILLS & PROJECTS)
+   5. CARDS (SKILLS & PROJECTS) - UIVERSE DESIGN
    ========================================== */
 .grid {
     display: grid;
@@ -197,47 +193,64 @@ p {
     width: 100%;
 }
 
+/* Outer Card Container */
 .card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
+    width: 100%;
+    min-height: 254px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+    display: flex; /* Ensures inner card scales smoothly */
+}
+
+/* Inner Card Container */
+.card2 {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    border-radius: 20px; /* Fixed missing value */
+    transition: all .2s;
     padding: 2rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--card-shadow-hover);
-    border-color: var(--accent);
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
 }
 
-.card h3 {
+/* Card Typography inside dark card */
+.card2 h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    color: var(--text-main);
+    color: #ffffff; /* Override dark mode for the dark card */
 }
 
-.card p {
+.card2 p {
     font-size: 1rem;
     margin-bottom: 0;
+    color: #b3b3b3;
 }
 
-.project-card {
+/* Project Card Specific Overrides */
+.project-card .card2 {
     padding: 0;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .project-img-placeholder {
     width: 100%;
     height: 200px;
-    background-color: var(--card-border);
+    background-color: #2a2a2a;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: #888;
     font-weight: 500;
 }
 
